@@ -5,7 +5,7 @@ import socketIOClient from "socket.io-client";
 
 let socket = socketIOClient.connect();
 
-const video = document.querySelector('video')
+const video = document.querySelector('audio')
 const filter = document.querySelector('#filter')
 const checkboxTheme = document.querySelector('#theme')
 let client = {}
@@ -14,7 +14,7 @@ let currentFilter
 export function CameraWebRtc(){
     console.log('CameraWebRtc')
     //get stream
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    navigator.mediaDevices.getUserMedia({ video: false, audio: true })
         .then(stream => {
             socket.emit('NewClient')
             video.srcObject = stream
@@ -77,8 +77,9 @@ export function CameraWebRtc(){
             function CreateVideo(stream) {
                 CreateDiv()
 
-                let video = document.createElement('video')
+                let video = document.createElement('audio')
                 video.id = 'peerVideo'
+                video.controls = true
                 video.srcObject = stream
                 video.setAttribute('class', 'embed-responsive-item')
                 document.querySelector('#peerDiv').appendChild(video)
@@ -86,12 +87,12 @@ export function CameraWebRtc(){
                 //wait for 1 sec
                 setTimeout(() => SendFilter(currentFilter), 1000)
 
-                video.addEventListener('click', () => {
-                    if (video.volume != 0)
-                        video.volume = 0
-                    else
-                        video.volume = 1
-                })
+                // video.addEventListener('click', () => {
+                //     if (video.volume != 0)
+                //         video.volume = 0
+                //     else
+                //         video.volume = 1
+                // })
 
             }
 
