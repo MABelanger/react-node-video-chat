@@ -24,7 +24,7 @@ export function CameraWebRtc(){
                 currentFilter = event.target.value
                 video.style.filter = currentFilter
                 SendFilter(currentFilter)
-                event.preventDefault
+                event.preventDefault();
             })
 
             //used to initialize a peer
@@ -149,4 +149,7 @@ export function CameraWebRtc(){
             document.querySelector('#muteText').style.color = "#fff"
     }
 
+    return (
+        ""
+    )
 }

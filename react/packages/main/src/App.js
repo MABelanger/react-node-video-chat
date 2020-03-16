@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import CameraWebRtc from './lib/CameraWebRtc';
+import { CameraWebRtc } from './lib/CameraWebRtc';
 
 
 //  add bootstrap
