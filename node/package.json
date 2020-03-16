@@ -1,0 +1,22 @@
+{
+  "name": "videochat",
+  "version": "1.0.0",
+  "description": "videochat",
+  "main": "main.js",
+  "scripts": {
+    "start:dev": "npx nodemon server.js </dev/null --ignore 'db/*.json' --ignore 'db/medias/*' --ignore 'sessions/*.json'",
+    "server": "npx forever -o ./logs/out.log -e ./logs/err.log start server.js",
+    "start": "npm run server"
+  },
+  "author": "Vinayak Sinha",
+  "dependencies": {
+    "express": "^4.16.4",
+    "forever": "^2.0.0",
+    "simple-peer": "^9.2.1",
+    "socket.io": "^2.2.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
