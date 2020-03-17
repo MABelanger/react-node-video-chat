@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { CameraWebRtc } from './lib/CameraWebRtc';
+import { CameraPeer } from './lib/CameraPeer';
 
 
 //  add bootstrap
@@ -13,7 +14,8 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={CameraWebRtc} />
+          <Route exact path="/peer" component={CameraPeer} />
+          <Route exact path="/" component={CameraWebRtc} />
         </Switch>
       </BrowserRouter>
     );

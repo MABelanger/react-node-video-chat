@@ -29,7 +29,7 @@ export function CameraWebRtc(){
 
             //used to initialize a peer
             function InitPeer(type) {
-                let peer = new Peer({ initiator: (type == 'init') ? true : false, stream: stream, trickle: false })
+                let peer = new Peer({ initiator: (type == 'init') ? true : false, stream: stream, trickle: true })
                 peer.on('stream', function (stream) {
                     CreateVideo(stream)
                 })
